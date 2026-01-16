@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 244 241;
+    --foreground: 25 48 75;
+    --brand-navy: #19304B;
+    --brand-cream: #F8F6F1;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-navy;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
