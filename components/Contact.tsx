@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Instagram } from 'lucide-react'
 
 export default function Contact() {
   const ref = useRef(null)
@@ -11,7 +11,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-brand-cream" ref={ref}>
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ export default function Contact() {
             Para consultas sobre diseños personalizados o citas en el atelier
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -46,24 +46,6 @@ export default function Contact() {
               </a>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <div className="flex justify-center mb-4">
-                <Phone className="text-brand-navy" size={32} />
-              </div>
-              <h3 className="font-sans text-sm tracking-wider uppercase mb-2 text-brand-navy/60">
-                Teléfono
-              </h3>
-              <a
-                href="tel:+56912345678"
-                className="font-sans text-lg hover:text-brand-gold transition-colors"
-              >
-                +56 9 1234 5678
-              </a>
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -79,6 +61,27 @@ export default function Contact() {
               <p className="font-sans text-lg">
                 Santiago, Chile
               </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              <div className="flex justify-center mb-4">
+                <Instagram className="text-brand-navy" size={32} />
+              </div>
+              <h3 className="font-sans text-sm tracking-wider uppercase mb-2 text-brand-navy/60">
+                Instagram
+              </h3>
+              <a
+                href="https://www.instagram.com/paulomendezofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-lg hover:text-brand-gold transition-colors"
+              >
+                @paulomendezofficial
+              </a>
             </motion.div>
           </div>
         </motion.div>

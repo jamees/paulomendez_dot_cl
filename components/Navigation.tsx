@@ -19,7 +19,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '#home', label: 'Inicio' },
     { href: '#about', label: 'Sobre Mí' },
-    // { href: '#gallery', label: 'Galería' }, // Temporalmente comentado
+    { href: '#gallery', label: 'Galería' },
     { href: '#contact', label: 'Contacto' },
   ]
 

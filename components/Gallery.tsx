@@ -5,69 +5,130 @@ import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { X } from 'lucide-react'
 
+interface Credit {
+  role: string
+  name: string
+  instagram?: string
+}
+
 interface GalleryItem {
   id: number
   title: string
   category: string
   image: string
   collection: string
+  credits?: Credit[]
 }
 
 type Collection = 'ultimos' | 'primavera2026' | 'otono2025' | 'verano2025'
 
 const collections: { id: Collection; name: string }[] = [
   { id: 'ultimos', name: 'Últimos' },
-  { id: 'primavera2026', name: 'Primavera 2026' },
-  { id: 'otono2025', name: 'Otoño 2025' },
-  { id: 'verano2025', name: 'Verano 2025' },
+  //{ id: 'primavera2026', name: 'Primavera 2026' },
+  //{ id: 'otono2025', name: 'Otoño 2025' },
+  //{ id: 'verano2025', name: 'Verano 2025' },
 ]
 
 const allGalleryItems: GalleryItem[] = [
   // Últimos (recientes)
   {
     id: 1,
-    title: 'Elegancia Contemporánea',
+    title: 'Azul mental',
     category: 'Alta Costura',
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800',
+    image: '/gallery/1.webp',
     collection: 'ultimos',
+    credits: [
+      { role: 'Fotografía', name: '@simonpaisthomas', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: '@jazmindelasflores', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: '@marcelobhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: '@welovemodels._ @kimberly.mlopezz', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: '@candelariaperezcuero', instagram: 'candelariaperezcuero' },
+    ],
   },
   {
     id: 2,
-    title: 'Vestido de Gala',
-    category: 'Noche',
-    image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800',
+   title: 'Azul mental',
+    category: 'Camisa',
+    image: '/gallery/2.webp',
     collection: 'ultimos',
+
+    credits: [
+      { role: 'Fotografía', name: '@simonpaisthomas', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: '@jazmindelasflores', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: '@marcelobhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: '@welovemodels._ @kimberly.mlopezz', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: '@candelariaperezcuero', instagram: 'candelariaperezcuero' },
+    ],
   },
   {
     id: 3,
-    title: 'Minimalismo Atemporal',
-    category: 'Esencial',
-    image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800',
+  title: 'Azul mental',
+    category: 'Camisaa',
+    image: '/gallery/3.webp',
     collection: 'ultimos',
+
+    credits: [
+      { role: 'Fotografía', name: '@simonpaisthomas', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: '@jazmindelasflores', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: '@marcelobhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: '@welovemodels._ @kimberly.mlopezz', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: '@candelariaperezcuero', instagram: 'candelariaperezcuero' },
+    ],
   },
   {
     id: 4,
-    title: 'Sofisticación Urbana',
+    title: 'Rectángulo',
     category: 'Contemporáneo',
-    image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=800',
+    image: '/gallery/4.webp',
     collection: 'ultimos',
+
+    credits: [
+      { role: 'Fotografía', name: 'Simón Pais', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: 'Jazmín Cortes', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: 'Marcelo Bhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: 'welove models', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: 'Candelaria Pérez Cuero', instagram: 'candelariaperezcuero' },
+    ],
   },
   {
     id: 5,
-    title: 'Avant-Garde',
+    title: 'Rectángulo',
     category: 'Experimental',
-    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800',
+    image: '/gallery/5.webp',
     collection: 'ultimos',
+
+    credits: [
+      { role: 'Fotografía', name: 'Simón Pais', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: 'Jazmín Cortes', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: 'Marcelo Bhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: 'welove models', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: 'Candelaria Pérez Cuero', instagram: 'candelariaperezcuero' },
+    ],
   },
   {
     id: 6,
-    title: 'Tradición Renovada',
+    title: 'Rectángulo',
     category: 'Clásico',
-    image: 'https://images.unsplash.com/photo-1617922001439-4a2e6562f328?q=80&w=800',
+    image: '/gallery/6.webp',
     collection: 'ultimos',
+
+    credits: [
+      { role: 'Fotografía', name: 'Simón Pais', instagram: 'simonpaisthomas' },
+      { role: 'Asistente de fotografía', name: 'Benjamin Carbajal' },
+      { role: 'Producción', name: 'Jazmín Cortes', instagram: 'jazmindelasflores' },
+      { role: 'Maquillaje y pelo', name: 'Marcelo Bhanu', instagram: 'marcelobhanu' },
+      { role: 'Modelo', name: 'welove models', instagram: 'welovemodels._' },
+      { role: 'Calzado', name: 'Candelaria Pérez Cuero', instagram: 'candelariaperezcuero' },
+    ],
   },
 
   // Primavera 2026
+  /*
   {
     id: 7,
     title: 'Floración',
@@ -110,6 +171,8 @@ const allGalleryItems: GalleryItem[] = [
     image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=800',
     collection: 'primavera2026',
   },
+  
+
 
   // Otoño 2025
   {
@@ -197,7 +260,8 @@ const allGalleryItems: GalleryItem[] = [
     category: 'Verano',
     image: 'https://images.unsplash.com/photo-1558769132-92e717d613cd?q=80&w=800',
     collection: 'verano2025',
-  },
+  }
+  */
 ]
 
 export default function Gallery() {
@@ -281,6 +345,31 @@ export default function Gallery() {
                       </p>
                     </div>
                   </div>
+                  {item.credits && item.credits.length > 0 && (
+                    <div className="absolute bottom-4 right-4 bg-brand-navy/90 backdrop-blur-sm p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-[250px]">
+                      <h4 className="font-sans text-xs tracking-widest uppercase text-brand-gold mb-2">Créditos</h4>
+                      <div className="space-y-1">
+                        {item.credits.map((credit, index) => (
+                          <p key={index} className="font-sans text-xs text-brand-cream/90">
+                            <span className="text-brand-cream/60">{credit.role}:</span>{' '}
+                            {credit.instagram ? (
+                              <a
+                                href={`https://www.instagram.com/${credit.instagram}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand-cream hover:text-brand-gold transition-colors duration-300"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                {credit.name}
+                              </a>
+                            ) : (
+                              <span className="text-brand-cream">{credit.name}</span>
+                            )}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
